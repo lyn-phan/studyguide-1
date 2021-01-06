@@ -64,98 +64,147 @@ PART TWO:
 
 """
 
+
+# SOLUTIONS!
+
 ###############################################################################
 
 # PART ONE
 
-# 1. Write a function called 'hello_world' that does not take any arguments and
+
+# 1. Write a function that does not take any arguments and
 #    prints "Hello World".
 
 def hello_world():
-    print("Hello World")
+    """Prints hello world."""
 
-# 2. Write a function called 'say_hi' that takes a name as a string and
+    print('Hello World')
+
+
+# 2. Write a function that takes a name as a string and
 #    prints "Hi" followed by the name.
+
 def say_hi(name):
-    print("Hi " + name)
+    """Greet a user by name."""
 
-# 3. Write a function called 'print_product' that takes two integers and
-#    multiplies them together. Print the result.
-def print_product(x, y):
-    print(x * y)
+    print('Hi ' + name)
 
-# 4. Write a function called 'repeat_string' that takes a string and an integer
-#    and prints the string that many times
-def repeat_string(str, num):
-    print(str * num)
 
-# 5. Write a function called 'print_sign' that takes an integer and prints
-#    "Higher than 0" if higher than zero and "Lower than 0" if lower than zero.
-#    If the integer is zero, print "Zero".
+# 3. Write a function that takes two integers and multiplies
+#    them together. Print the result.
+
+def print_product(a, b):
+    """Print product of two integers."""
+
+    print(a * b)
+
+
+# 4. Write a function that takes a string and an integer and
+#    prints the string that many times
+
+def repeat_string(message, times_to_repeat):
+    """Print the messages as many times as given."""
+
+    # Neat! Python can multiply a string by an integer!
+
+    print(message * times_to_repeat)
+
+
+# 5. Write a function that takes an integer and prints "Higher
+#    than 0" if higher than zero and "Lower than 0" if lower
+#    than zero. If the integer is 0 print "Zero".
 
 def print_sign(num):
-    if num > 0:
-        print("Higher than 0")
-    elif num < 0:
-        print("Lower than 0")
-    else:
-        print("Zero")
+    """For num, print if it's higher/lower/equal to zero."""
 
-# 6. Write a function called 'is_divisible_by_three' that takes an integer and
-#    returns a boolean (True or False), depending on whether the number is
-#    evenly divisible by 3.
+    if num > 0:
+        print('Higher than 0')
+    elif num < 0:
+        print('Lower than 0')
+    else:
+        print('Zero')
+
+
+# 6. Write a function that takes an integer and returns a
+#    boolean (True or False), depending on whether the number
+#    is evenly divisible by 3.
 
 def is_divisible_by_three(num):
+    """Is this number divisible by 3?"""
+
+    # We'll use the "modulus operator", which returns the
+    # remainder of division.
+
     if num % 3 == 0:
         return True
+
     else:
         return False
 
+    # Or, a shorter and more "Pythonic" solution: since the
+    # expression "num % 3" itself evaluates to True or False,
+    # we can just return that:
+    #
+    #   return num % 3 == 0
 
-# 7. Write a function called 'num_spaces' that takes a sentence as one string
-#    and returns the number of spaces.
+
+# 7. Write a function that takes a sentence as one string and
+#    returns the number of spaces.
 
 def num_spaces(sentence):
+    """Return the number of spaces in the sentence."""
+
     spaces = 0
 
     for char in sentence:
         if char == " ":
             spaces = spaces + 1
-    return spaces 
+
+    return spaces
 
 
-# 8. Write a function called 'total_meal_price' that can be passed a meal price
-#    and a tip percentage. It should return the total amount paid
-#    (price + price * tip). **However:** passing in the tip percentage should
-#    be optional; if not given, it should default to 15%.
+# 8. Write a function that can be passed a meal price and a
+#    tip percentage. It should return the total amount paid
+#    (price + price * tip). **However:** passing in the tip
+#    percentage should be optional; if not given, it should
+#    default to 15%.
 
-def total_meal_price(price, tip=0.15):
-    return price + (price * tip)
+def total_meal_price(meal_price, tip=0.15):
+    """Find the total price of a meal.
+
+    The total price is the meal price plus the tip.
+    """
+
+    return meal_price + (meal_price * tip)
 
 
-# 9. Write a function called 'sign_and_parity' that takes an integer as an
-#    argument and returns two pieces of information as strings --- "Positive"
-#    or "Negative" and "Even" or "Odd". The two strings should be returned in
-#    a list.
-#
-#    Then, write code that shows the calling of this function on a number and
-#    unpack what is returned into two variables --- sign and parity (whether
-#    it's even or odd). Print sign and parity.
+# 9. Write a function that takes an integer as an argument and
+#    returns two pieces of information as strings ---
+#    "Positive" or "Negative" and "Even" or "Odd". The two
+#    strings should be returned in a list.
 
 def sign_and_parity(num):
-    if num > 0:
+    """Return a list of [sign, parity]"""
+
+    if num >= 0:
         sign = "Positive"
     else:
         sign = "Negative"
-    
+
     if num % 2 == 0:
         parity = "Even"
     else:
         parity = "Odd"
-    
+
     return [sign, parity]
 
-my_sign, my_parity = sign_and_parity(123)
+
+# Then, write code that shows the calling of this function
+# on a number and unpack what is returned into two
+# variables --- sign and parity (whether it's even or odd).
+# Print sign and parity.
+
+my_sign, my_parity = sign_and_parity(7)
 
 print(my_sign)
 print(my_parity)
@@ -165,28 +214,30 @@ print(my_parity)
 
 # PART TWO
 
-# 1. Write a function called full_title that takes a name and a job title as
-#    parameters, making it so the job title defaults to "Engineer" if a job
-#    title is not passed in. Return the person's title and name in one string.
+# 1. Turn the block of code from the directions into a function.
+#    Take a name and a job title as parameters, making it so the
+#    job title defaults to "Engineer" if a job title is not passed in.
+#    Return the person's title and name.
 
 def full_title(name, title="Engineer"):
+    """Return the full  for a person."""
+
     return title + " " + name
 
 
-# 2. Write a function called write_letter that, given a recipient name & job
-#    title and a sender name, prints the following letter:
+# 2. Given a recipient name & job title and a sender name,
+#    print the following letter:
 #
 #       Dear JOB_TITLE RECIPIENT_NAME, I think you are amazing!
 #       Sincerely, SENDER_NAME.
-#
-#    Use the function from #1 to construct the full title for the letter's
-#    greeting.
 
 def write_letter(name, title, sender):
-    recipient = full_title(name, title)
-    print(f"Dear {recipient}, I think you are amazing! Sincerely, {sender}")
+    """Print filled in form letter"""
 
+    receiver = full_title(name, title)
 
+    print("Dear {receiver}, I think you are amazing! Sincerely, {sender}".format(
+        receiver=receiver, sender=sender))
 
 ###############################################################################
 
